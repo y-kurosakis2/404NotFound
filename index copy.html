@@ -15,15 +15,32 @@ body {
 .content {
   height: 100%;
   position: relative;
-  z-index: 1;
-  background-image: URL(https://stringfixer.com/files/49335605.jpg); /*TODO 読み込みに時間がかかる*/
-  /* background: URL(img/49335605.jpg); */
+  z-index: 1; /*重ね合わせレベル数値が大きいほど上に重ねていく　*/
+  /* background-image: URL(https://stringfixer.com/files/49335605.jpg); TODO 読み込みに時間がかかる */
+  background-image: URL(img/49335605.jpg); /* img配下に画像を置くと読み込み時間が短くなる */
   /* background-image: URL(https://www.deviantart.com/choops91/art/Art4-523846588); */
   /* background-color: #d2e1ec;
   background-image: linear-gradient(to bottom, #bbcfe1 0%, #e8f2f6 80%); */
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
+}
+
+.mashroom1 {
+  /* z-index: 30; */
+  width: 10%;
+  height: 15.7%;
+  top: 87%;
+  right: 1.5%;
+  background-image: url(img/kinoko3.png);
+  /* background: URL(img/kinoko1.png); */
+  position: absolute;
+  background-repeat: no-repeat;
+  pointer-events: auto;
+}
+.mashroom1:hover{
+  transform: perspective(500px) translateZ(20px);
+  transition: 0.25s;
 }
 
 .snow {
@@ -39,6 +56,7 @@ body {
   text-align: center;
   line-height: 2em;
   font-size: 5vh;
+  font-family: "Comic Sans MS", 'Century', 'impact',sans-serif;
 }
 
 .home-link {
@@ -106,7 +124,7 @@ body {
   background-color: #e8f2f6;
   background-image: linear-gradient(to bottom, #dee8f1, #f6f9fa 60px);
 } */
-.mound:after {
+/* .mound:after {
   content: "";
   display: block;
   width: 28px;
@@ -120,7 +138,7 @@ body {
   border-radius: 100%;
   transform: rotate(-15deg);
   box-shadow: -56px 12px 0 1px #dd4040, -126px 6px 0 2px #dd4040, -196px 24px 0 3px #dd4040;
-}
+} */
 
 .mound_text {
   transform: rotate(6deg);
@@ -160,6 +178,7 @@ body {
   border: 10px solid #dd4040;
   border-radius: 4px 4px 20px 20px;
 }
+
 </style>
 <script>
     (function() {
@@ -257,9 +276,11 @@ body {
     </div>
     <!-- <div class="ground">  // 下半分の白い背景やら木やら-->
       <div class="mound"> 
+        <div class="mashroom1"></div>
         <div class="mound_text">404</div> <!--// 404-->
         <!-- <div class="mound_spade"></div> // スコップ --> 
-      </div>
+      
+        </div>
     <!-- </div> -->
   </div>
 
