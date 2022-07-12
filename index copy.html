@@ -9,7 +9,7 @@ body {
   font-size: 32px;
   font-weight: 500;
   /* color: #5d7399; */
-  color: white;
+  color: whitesmoke;
 }
 
 .content {
@@ -32,13 +32,30 @@ body {
   height: 15.7%;
   top: 87%;
   right: 1.5%;
-  background-image: url(img/kinoko3.png);
+  /* background-image: url(img/kinoko3.png); */
   /* background: URL(img/kinoko1.png); */
   position: absolute;
   background-repeat: no-repeat;
   pointer-events: auto;
 }
 .mashroom1:hover{
+  transform: perspective(500px) translateZ(20px);
+  transition: 0.25s;
+}
+
+.mashroom2 {
+  /* z-index: 30; */
+  width: 10%;
+  height: 15.7%;
+  top: 85%;
+  right: 39%;
+  background-image: url(img/kinoko4.png);
+  /* background: URL(img/kinoko1.png); */
+  position: absolute;
+  background-repeat: no-repeat;
+  pointer-events: auto;
+}
+.mashroom2:hover{
   transform: perspective(500px) translateZ(20px);
   transition: 0.25s;
 }
@@ -56,7 +73,7 @@ body {
   text-align: center;
   line-height: 2em;
   font-size: 5vh;
-  font-family: "Comic Sans MS", 'Century', 'impact',sans-serif;
+  font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
 }
 
 .home-link {
@@ -105,10 +122,11 @@ body {
 .mound {
   margin-top: -80px;
   font-weight: 800;
-  font-size: 180px;
+  font-size: 100px;
   text-align: center;
   color: #dd4040;
   pointer-events: none;
+  font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
 }
 /* .mound:before {
   content: "";
@@ -139,7 +157,15 @@ body {
   transform: rotate(-15deg);
   box-shadow: -56px 12px 0 1px #dd4040, -126px 6px 0 2px #dd4040, -196px 24px 0 3px #dd4040;
 } */
+.uranai {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none; /*none: ポインターイベントの対象外*/
+  z-index: 10;
+  color: #dd4040;
 
+}
 .mound_text {
   transform: rotate(6deg);
 }
@@ -179,9 +205,97 @@ body {
   border-radius: 4px 4px 20px 20px;
 }
 
+/* .modal_wrap input {
+  display: none;
+}
+
+.modal_overlay {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0s 0.5s;
+  transform: scale(0);
+}
+
+.modal_trigger {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.modal_content {
+  align-self: center;
+  width: 60%;
+  max-width: 800px;
+  padding: 30px 30px 15px;
+  box-sizing: border-box;
+  background: #fff;
+  line-height: 1.4em;
+  transform: scale(0.5) rotateX(-270deg);
+  transition: 0.5s;
+}
+
+.close_button {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal_wrap input:checked ~ .modal_overlay {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s;
+}
+
+.modal_wrap input:checked ~ .modal_overlay .modal_content {
+  transform: scale(1) rotateX(0deg);
+}
+
+.open_button {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 30px;
+  margin: auto;
+  padding: 8px 16px;
+  color: #444;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  cursor: pointer;
+} */
+
 </style>
 <script>
+
+function drawFortune() {
+      var array = ['大吉','中吉','小吉','末吉','凶','大凶'];
+      var value = array[Math.floor(Math.random() * array.length)];
+      var id1 = document.getElementById('pos1');
+      id1.style.fontSize = "32pt";
+      id1.style.color = "blue";
+      id1.innerHTML = value;
+    }
+  
     (function() {
+
 	function ready(fn) {
 		if (document.readyState != 'loading'){
 			fn();
@@ -272,14 +386,44 @@ body {
 <div class="content">
     <canvas class="snow" id="snow"></canvas>
     <div class="main-text">
-      <h1>Choose your favorite mushroom<br/>好きなキノコを選んでね</h1><a class="home-link" href="#">Hitch a ride back home.</a>
+      <h1>Choose your favorite mushroom<br/></h1><a class="home-link" href="#">Hitch a ride back home.</a>
     </div>
+    <!-- <div>
+      <input type="button" value="おみくじを引く" onclick="drawFortune();"></input>
+      <div class="uranai" id="pos1"></div>
+    </div> -->
+    <!-- <div class="modal_wrap">
+      <input id="trigger" type="checkbox">
+        <div class="modal_overlay">
+          <label for="trigger" class="modal_trigger"></label>
+          <div class="modal_content">
+            <label for="trigger" class="close_button">✖️</label>
+            <h2>Modal Content</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          </div>
+        </div>
+      </div> -->
+      
+      <!-- <label for="trigger" class="open_button">OPEN</label> -->
+
+    <div class="mashroom1">
+      <img src="img/kinoko3.png" class="button" onclick="drawFortune();" >
+      <input type="button"  onclick="drawFortune();"></input>
+      
+          
+    </div>
+    <div class="uranai" id="pos1"></div>
     <!-- <div class="ground">  // 下半分の白い背景やら木やら-->
       <div class="mound"> 
-        <div class="mashroom1"></div>
+        
+        
+        <div class="mashroom2">
+        
+        </div>
+      
         <div class="mound_text">404</div> <!--// 404-->
         <!-- <div class="mound_spade"></div> // スコップ --> 
-      
+
         </div>
     <!-- </div> -->
   </div>
