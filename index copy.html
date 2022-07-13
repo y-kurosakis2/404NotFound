@@ -494,6 +494,7 @@ function drawFortune() {
 		
 		function updateParticles() {
 			ctx.clearRect(0, 0, width, height);
+      ctx.globalAlpha = 0.5;
 			ctx.fillStyle = '#f6f9fa';
 			
 			particles.forEach(function(particle) {
