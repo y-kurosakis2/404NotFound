@@ -122,10 +122,6 @@ body {
 .mound {
   margin-top: -80px;
   font-weight: 800;
-  font-size: 180px;
-  text-align: center;
-  color: #dd4040;
-  pointer-events: none;
   font-size: 100px;
   text-align: center;
   color: #dd4040;
@@ -146,7 +142,6 @@ body {
   background-color: #e8f2f6;
   background-image: linear-gradient(to bottom, #dee8f1, #f6f9fa 60px);
 } */
-
 /* .mound:after {
   content: "";
   display: block;
@@ -161,7 +156,6 @@ body {
   border-radius: 100%;
   transform: rotate(-15deg);
   box-shadow: -56px 12px 0 1px #dd4040, -126px 6px 0 2px #dd4040, -196px 24px 0 3px #dd4040;
-
 } */
 .uranai {
   position: absolute;
@@ -172,7 +166,6 @@ body {
   color: #dd4040;
 
 }
-
 .mound_text {
   transform: rotate(6deg);
 }
@@ -210,6 +203,32 @@ body {
   box-sizing: border-box;
   border: 10px solid #dd4040;
   border-radius: 4px 4px 20px 20px;
+}
+
+/* .modal_wrap input {
+  display: none;
+}
+
+.modal_overlay {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0s 0.5s;
+  transform: scale(0);
+}
+
+.modal_trigger {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .modal_content {
@@ -499,7 +518,6 @@ function drawFortune() {
 			window.requestAnimationFrame(updateParticles);
 		}
 
-
     (function () {
       const modalArea = document.getElementById('modalArea');
       const openModal = document.getElementById('openModal');
@@ -513,7 +531,7 @@ function drawFortune() {
         },false);
       }    
     }());
-
+		
 		onResize();
 		updateParticles();
 		
@@ -535,17 +553,6 @@ function drawFortune() {
 <div class="content">
     <canvas class="snow" id="snow"></canvas>
     <div class="main-text">
-
-      <h1>Choose your favorite mushroom<br/>好きなキノコを選んでね</h1><a class="home-link" href="#">Hitch a ride back home.</a>
-    </div>
-    <!-- <div class="ground">  // 下半分の白い背景やら木やら-->
-      <div class="mound"> 
-        <div class="mound_text">404</div> <!--// 404-->
-        <!-- <div class="mound_spade"></div> // スコップ --> 
-      </div>
-    <!-- </div> -->
-  </div>
-
       <h1>Choose your favorite mushroom<br/></h1><a class="home-link" href="#">Hitch a ride back home.</a>
     </div>
     <!-- <div>
@@ -656,5 +663,5 @@ function drawFortune() {
     </div>
   </div>
 </section>
-
+<!-- モーダルエリアここまで -->
 </body>
