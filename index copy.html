@@ -371,6 +371,7 @@ form {
 .column {
   flex: 50%;
   padding: 10px;
+  font-family: "UD デジタル 教科書体 N-R", "BIZ UDゴシック Regular", "Hiragino Kaku Gothic ProN", "ascii";
 }
 
 .column#main {
@@ -584,7 +585,7 @@ function drawFortune() {
       <div class="mound"> 
         
         
-        <div class="mashroom2" id=”openModal”>
+        <div class="mashroom2" id="openModal">
         
         </div>
       
@@ -606,36 +607,62 @@ function drawFortune() {
             <div class="modal-body">
               <div class="column" id="main">
                 <h1>今日の運勢</h1>
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
                 <h4>
                   <!-- ここで占い結果を☆の数でランダム表示 -->
-                  <script type="text/javascript">
-                    var msg = new Array();
-                    // 設定開始（メッセージの内容を設定してください）
-                    
-                    msg[0] = '☆';
-                    msg[1] = '☆☆';
-                    msg[2] = '☆☆☆';
-                    msg[3] = '☆☆☆☆';
-                    msg[4] = '☆☆☆☆☆';
-                    
-                    // 設定終了
-                    
-                    
-                    var no = Math.floor(Math.random() * msg.length);
-                    
-                    // 表示開始
-                    document.write(msg[no]);
-                    // 表示終了
-                    
-                    // -->
-                    </script>
+                  <span id="star"></span>
                 </h4>
+                <h5>
+                  <span id="msg"></span>
+                </h5>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail1">ラッキーアイテム</label>
-                  <label for="exampleInputEmail1">：＜ここでラッキーアイテムの説明＞</label>
-                </div>
+                <script type="text/javascript">
+                  var star = new Array();
+                  // 設定開始（メッセージの内容を設定してください）
+                  
+                  star[0] = '☆';
+                  star[1] = '☆☆';
+                  star[2] = '☆☆☆';
+                  star[3] = '☆☆☆☆';
+                  star[4] = '☆☆☆☆☆';
+                  
+                  var no = Math.floor(Math.random() * star.length);
+
+                  // 表示開始
+                  document.getElementById('star').innerHTML = star[no];
+
+                  
+                  var msg = '占いメッセージ';
+                  
+                  switch (no) {
+                    case 0:
+                      msg = '雲に覆われ輝きは見えません。今日はおとなしくしておいたほうがよいでしょう。';
+                      break;
+                    
+                    case 1:
+                      msg = '光はまだ淡いです。浮ついた心持ちでいると足もとをすくわれ、暗闇を彷徨うことになるでしょう。';
+                      break;
+
+                    case 2:
+                      msg = '兆しは確実に芽生えています。諦めず堅実に取り組めば道は拓けるでしょう。';
+                      break;
+
+                    case 3:
+                      msg = '星が瞬いています。何事も前向きに進めばたちまち光が共鳴しよい影響をもたらすでしょう。';
+                      break;
+
+                    case 4:
+                      msg = '夜空が大きく広がっています。星々が遍くすべてにおいてあなたの味方をしてくれるでしょう。';
+                      break;
+                  }
+
+                  document.getElementById('msg').innerHTML = msg;
+
+
+                  // 表示終了
+                  
+                  // -->
+                  </script>
+
                 <button type="submit" id="closeModal" class="btn btn-primary">とじる</button>
               </div>
               <div>
