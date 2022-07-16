@@ -49,7 +49,7 @@ body {
   height: 15.7%;
   top: 85%;
   right: 39%;
-  background-image: url(img/kinoko4.png);
+  /* background-image: url(img/kinoko4.png); */
   /* background: URL(img/kinoko1.png); */
   position: absolute;
   background-repeat: no-repeat;
@@ -69,7 +69,7 @@ body {
 }
 
 .main-text {
-  padding: 20vh 20px 0 20px;
+  padding: 0vh 20px 0 20px; /*上、右、下、左、vhはビューポートの高さに対する割合*/
   text-align: center;
   line-height: 2em;
   font-size: 5vh;
@@ -119,7 +119,7 @@ body {
   box-shadow: 325px -275px 15px #9aa9c2, 600px -600px 15px #7e90b0, 875px -925px 15px #7e90b0, 1240px -1160px 15px #bac4d5, 1475px -1525px 15px #8a9bb8, 1840px -1760px 15px #8193b2, 2135px -2065px 15px #aab6cb, 2415px -2385px 15px #b0bccf, 2705px -2695px 15px #9aa9c2, 2965px -3035px 15px #b7c1d3, 3335px -3265px 15px #adb9cd, 3605px -3595px 15px #adb9cd, 3925px -3875px 15px #b0bccf, 4215px -4185px 15px #b4bed1, 4485px -4515px 15px #8496b4, 4775px -4825px 15px #b7c1d3;
 }
 
-.mound {
+/* .mound {
   margin-top: -80px;
   font-weight: 800;
   font-size: 100px;
@@ -127,7 +127,7 @@ body {
   color: #dd4040;
   pointer-events: none;
   font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
-}
+} */
 /* .mound:before {
   content: "";
   display: block;
@@ -167,6 +167,16 @@ body {
 
 }
 .mound_text {
+  z-index: 30;
+  padding: 15vh 20px 0 20px; /*上、右、下、左、vhはビューポートの高さに対する割合*/
+  /* margin-top: -80px; */
+  font-weight: 800;
+  /* font-size: 100px; */
+  text-align: center;
+  font-size: 15vh;
+  color: #dd4040;
+  pointer-events: none;
+  font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
   transform: rotate(6deg);
 }
 
@@ -308,7 +318,8 @@ body {
   left: 50%;
   transform:translate(-50%,-50%);
   width: 70%;
-  max-width: 500px;
+  max-width: 60%; /*モーダルの横幅指定*/
+  /* max-height: calc(100vh - 350px); */
   padding: 10px 30px;
   background-color: transparent;
 }
@@ -329,18 +340,25 @@ body {
   padding: 0;
   border-radius: 4rem;
   font-family: 'PT Sans', sans-serif;
-  background-color: #000;
+  /* background-image: URL(img/night-g6b090a4fd_1920.jpg);蛍 */
+  background-image: URL(img/pexels-johannes-plenio-3262249.jpg);/*星空*/
+  /* background-image: URL(img/hd-wallpaper-g9ffa9f255_640.jpg);夜の木 */
+  /* background-image: URL(img/tree-gc7aa71c3a_1280.jpg);ねこちゃん */
+  background-size: cover;
+  /* background-color: #000; */
 }
 
 .modal-content {
+  /* background-image: URL(img/49335605.jpg); */
   border-radius: 4rem;
   width: 100%;
   margin: auto;
   -webkit-box-shadow: -1px -2px 42px -19px rgba(0,0,0,0.74);
--moz-box-shadow: -1px -2px 42px -19px rgba(0,0,0,0.74);
-box-shadow: -1px -2px 42px -19px rgba(0,0,0,0.74);
-color: aliceblue;
-text-align: center;
+  -moz-box-shadow: -1px -2px 42px -19px rgba(0,0,0,0.74);
+  box-shadow: -1px -2px 42px -19px rgba(0,0,0,0.74);
+  color: aliceblue;
+  font-size: 5vh;
+  text-align: center;
 }
 
 .modal-content h1, .modal-content h2, .modal-content h3 {
@@ -377,8 +395,8 @@ form {
 .column#main {
   flex: 75%;
   padding: 50px;
-  margin-top: 30px;
-  margin-left: 15px;
+  /* margin-top: 30px; */
+  /* margin-left: 15px; */
 }
 
 /* #secondary {
@@ -398,22 +416,24 @@ form {
   width: 200px;
   padding: .150rem .75rem;
   margin: 30px auto;
-  font-family: 'PT Sans', sans-serif;
+  font-size: 3vh;
+  font-family: "UD デジタル 教科書体 N-R", "BIZ UDゴシック Regular", "Hiragino Kaku Gothic ProN", "ascii", sans-serif;
   letter-spacing: 2px;
 }
 
 .btn-primary {
-  border-color: rgba( 255, 255, 255, 0);
-  background: #666699; /* Old browsers */
-background: -moz-linear-gradient(left, #666699 0%, #6633CC 99%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left, #666699 0%,#6633CC 99%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right, #666699 0%,#6633CC 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  border-color: rgba(177, 115, 225, 0.553);
+  background: #a9a9e9; /* Old browsers */
+background: -moz-linear-gradient(left, rgb(213, 182, 255) 0%, #6633CC 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgb(213, 182, 255) 0%,#6633CC 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgb(213, 182, 255) 0%,#6633CC 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', endColorstr='#fca86c',GradientType=1 ); /* IE6-9 */
 /* Color format:     Comments */
 }
 
 .btn-primary:hover {
-  border-color: rgba( 255, 255, 255, 0);
+  border-color: #6633cc00;
+  background: #6633CC; /* Old browsers */
 }
 
 #main .btn-primary {
@@ -437,15 +457,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
 /* モーダルCSSここまで */
 </style>
 <script>
-
-function drawFortune() {
-      var array = ['☆','☆☆','☆☆☆','☆☆☆','☆☆☆☆','☆☆☆☆☆'];
-      var value = array[Math.floor(Math.random() * array.length)];
-      var id1 = document.getElementById('pos1');
-      id1.style.fontSize = "32pt";
-      id1.style.color = "blue";
-      id1.innerHTML = value;
-    }
   
     (function() {
 
@@ -522,9 +533,10 @@ function drawFortune() {
     (function () {
       const modalArea = document.getElementById('modalArea');
       const openModal = document.getElementById('openModal');
+      const openModal2 = document.getElementById('openModal2')
       const closeModal = document.getElementById('closeModal');
       const modalBg = document.getElementById('modalBg');
-      const toggle = [openModal,closeModal,modalBg];
+      const toggle = [openModal,openModal2,closeModal,modalBg];
   
       for(let i=0, len=toggle.length ; i<len ; i++){
         toggle[i].addEventListener('click',function(){
@@ -553,47 +565,22 @@ function drawFortune() {
 
 <div class="content">
     <canvas class="snow" id="snow"></canvas>
+    <div class="mound_text">404</div> <!--// 404-->
     <div class="main-text">
-      <h1>Choose your favorite mushroom<br/></h1><a class="home-link" href="#">Hitch a ride back home.</a>
+      <h1>Choose your favorite mushroom<br/></h1>
     </div>
-    <!-- <div>
-      <input type="button" value="おみくじを引く" onclick="drawFortune();"></input>
-      <div class="uranai" id="pos1"></div>
-    </div> -->
-    <!-- <div class="modal_wrap">
-      <input id="trigger" type="checkbox">
-        <div class="modal_overlay">
-          <label for="trigger" class="modal_trigger"></label>
-          <div class="modal_content">
-            <label for="trigger" class="close_button">✖️</label>
-            <h2>Modal Content</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-          </div>
-        </div>
-      </div> -->
-      
-      <!-- <label for="trigger" class="open_button">OPEN</label> -->
-
+    
     <div class="mashroom1">
       <img src="img/kinoko3.png" class="button" id="openModal">
       <input type="button"></input>
-      
-          
+           
     </div>
-    <div class="uranai" id="pos1"></div>
-    <!-- <div class="ground">  // 下半分の白い背景やら木やら-->
-      <div class="mound"> 
-        
-        
-        <div class="mashroom2" id="openModal">
-        
-        </div>
-      
-        <div class="mound_text">404</div> <!--// 404-->
-        <!-- <div class="mound_spade"></div> // スコップ --> 
+    <!-- <div class="uranai" id="pos1"></div> -->
+    <div class="mashroom2">
+      <img src="img/kinoko4.png" class="button" id="openModal2">
+      <input type="button"></input>
+    </div>
 
-        </div>
-    <!-- </div> -->
   </div>
 
   <!-- モーダルエリアここから -->
@@ -606,24 +593,27 @@ function drawFortune() {
           <div class="modal-content">
             <div class="modal-body">
               <div class="column" id="main">
-                <h1>今日の運勢</h1>
-                <h4>
+                <div style="font-size: 5vh; font-weight: bold;">
+                  今日の運勢
+                </div>
+                <!-- </h1> -->
+                 <!-- <h4> -->
                   <!-- ここで占い結果を☆の数でランダム表示 -->
-                  <span id="star"></span>
-                </h4>
-                <h5>
-                  <span id="msg"></span>
-                </h5>
+                  <div id="star" style="font-size: 8vh; padding: 10% 0; color: hsl(57, 100%, 83%);"></div>
+                <!-- </h4> -->
+                <!-- <h5> -->
+                  <span id="msg" style="font-size: 3vh;"></span>
+                <!-- </h5> -->
 
                 <script type="text/javascript">
                   var star = new Array();
                   // 設定開始（メッセージの内容を設定してください）
                   
-                  star[0] = '☆';
-                  star[1] = '☆☆';
-                  star[2] = '☆☆☆';
-                  star[3] = '☆☆☆☆';
-                  star[4] = '☆☆☆☆☆';
+                  star[0] = '★☆☆☆☆';
+                  star[1] = '★★☆☆☆';
+                  star[2] = '★★★☆☆';
+                  star[3] = '★★★★☆';
+                  star[4] = '★★★★★';
                   
                   var no = Math.floor(Math.random() * star.length);
 
@@ -635,23 +625,23 @@ function drawFortune() {
                   
                   switch (no) {
                     case 0:
-                      msg = '雲に覆われ輝きは見えません。今日はおとなしくしておいたほうがよいでしょう。';
+                      msg = '雲に覆われ漆黒の闇に覆われし一日。<br>今日はおとなしくしておいたほうがよいでしょう。';
                       break;
                     
                     case 1:
-                      msg = '光はまだ淡いです。浮ついた心持ちでいると足もとをすくわれ、暗闇を彷徨うことになるでしょう。';
+                      msg = 'その光は未だ火影の如し。浮ついた心持ちでいると足もとをすくわれ、<br>暗闇を彷徨うことになるでしょう。';
                       break;
 
                     case 2:
-                      msg = '兆しは確実に芽生えています。諦めず堅実に取り組めば道は拓けるでしょう。';
+                      msg = '宵闇から解き放たれ、朧月に照らされる道を進め。<br>諦めず堅実に取り組めば道は拓けるでしょう。';
                       break;
 
                     case 3:
-                      msg = '星が瞬いています。何事も前向きに進めばたちまち光が共鳴しよい影響をもたらすでしょう。';
+                      msg = '細々と瞬く星を探しながら、聊か立ち止まり頭上に広がる天空を見よ。<br>何事も前向きに進めばたちまち光が共鳴しよい影響をもたらすでしょう。';
                       break;
 
                     case 4:
-                      msg = '夜空が大きく広がっています。星々が遍くすべてにおいてあなたの味方をしてくれるでしょう。';
+                      msg = '煌々と輝く星屑が一面に広がり彗星が舞い散っている。<br>星々が遍くすべてにおいてあなたの味方をしてくれるでしょう。';
                       break;
                   }
 
