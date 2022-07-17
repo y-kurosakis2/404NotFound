@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <head>
     <style>
+/***アニメーション用の疑似要素***/
+body::before{
+  content: "";
+  position: fixed;/*固定表示*/
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999; /*他のスタッキングコンテキストとかち合った時用*/
+  background-image: url(img/alice.jpg); /*シャッターの色*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: min-anim .9s forwards; /*アニメーション付与*/
+  animation-delay: 1.5s; /*好みで遅延*/
+  transform-origin: bottom; /*変化の起点*/
+}
+/*背景が縮むアニメーション*/
+@keyframes min-anim{
+  0% {
+    transform: scaleY(1);/*画面全体を覆う*/
+  }
+  100% {
+    transform: scaleY(0);/*高さ0*/
+    visibility: hidden; /*非表示*/
+  }
+}
 html,
 body {
   height: 100%;
@@ -12,15 +38,12 @@ body {
   color: whitesmoke;
 }
 
+
 .content {
   height: 100%;
   position: relative;
   z-index: 1; /*重ね合わせレベル数値が大きいほど上に重ねていく　*/
-  /* background-image: URL(https://stringfixer.com/files/49335605.jpg); TODO 読み込みに時間がかかる */
   background-image: URL(img/49335605.jpg); /* img配下に画像を置くと読み込み時間が短くなる */
-  /* background-image: URL(https://www.deviantart.com/choops91/art/Art4-523846588); */
-  /* background-color: #d2e1ec;
-  background-image: linear-gradient(to bottom, #bbcfe1 0%, #e8f2f6 80%); */
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
