@@ -2,34 +2,41 @@
 <head>
     <style>
 /***アニメーション用の疑似要素***/
-body::before{
-  content: "";
+body::before, body::after{
+  content: '404 NotFound';
   position: fixed;/*固定表示*/
   top:0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 999; /*他のスタッキングコンテキストとかち合った時用*/
-  background-image: url(img/alice.jpg); /*シャッターの色*/
+  /* background-image: url(img/alice.jpg); シャッターの色 */
+  background-color: rgb(70, 3, 14);
   background-size: cover;
   background-repeat: no-repeat;
+  text-align: center;
+  font-size: 5vh;
+  font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
   animation: min-anim .9s forwards; /*アニメーション付与*/
   animation-delay: 1.5s; /*好みで遅延*/
   transform-origin: bottom; /*変化の起点*/
 }
+
 /*背景が縮むアニメーション*/
 @keyframes min-anim{
   0% {
     transform: scaleY(1);/*画面全体を覆う*/
   }
   100% {
-    transform: scaleY(0);/*高さ0*/
+    
+    transform: scaleY(0); /*高さ0*/
     visibility: hidden; /*非表示*/
   }
 }
 html,
 body {
   height: 100%;
+  /* width: 100%; */
   min-height: 450px;
   font-family: "Dosis", sans-serif;
   font-size: 32px;
@@ -301,7 +308,7 @@ body {
   border-radius: 4rem;
   font-family: 'PT Sans', sans-serif;
   /* background-image: URL(img/night-g6b090a4fd_1920.jpg);蛍 */
-  background-image: URL(img/pexels-johannes-plenio-3262249.jpg);/*星空*/
+  /* background-image: URL(img/pexels-johannes-plenio-3262249.jpg);星空 */
   /* background-image: URL(img/hd-wallpaper-g9ffa9f255_640.jpg);夜の木 */
   /* background-image: URL(img/tree-gc7aa71c3a_1280.jpg);ねこちゃん */
   background-size: cover;
@@ -505,6 +512,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
       for(let i=0, len=toggle.length ; i<len ; i++){
         toggle[i].addEventListener('click',function(){
           modalArea.classList.toggle('is-show');
+
+          var star = new Array();
+                  // 設定開始（メッセージの内容を設定してください）
+                  
+          star[0] = '★☆☆☆☆';
+          star[1] = '★★☆☆☆';
+          star[2] = '★★★☆☆';
+          star[3] = '★★★★☆';
+          star[4] = '★★★★★';
+                  
+          var no = Math.floor(Math.random() * star.length);
+
+                  // 表示開始
+          document.getElementById('star').innerHTML = star[no];
+
+                  
+          var msg = '占いメッセージ';
+          var img = '画像';
+                  
+          switch (no) {
+            case 0:
+              msg = '雲に覆われ漆黒の闇に覆われし一日。<br>今日はおとなしくしておいたほうがよいでしょう。';
+              img = 'URL(img/hd-wallpaper-g9ffa9f255_640.jpg)';
+              break;
+                    
+            case 1:
+              msg = 'その光は未だ火影の如し。浮ついた心持ちでいると足もとをすくわれ、<br>暗闇を彷徨うことになるでしょう。';
+              img = 'URL(img/tree-gc7aa71c3a_1280.jpg)';
+              break;
+
+            case 2:
+              msg = '宵闇から解き放たれ、朧月に照らされる道を進め。<br>諦めず堅実に取り組めば道は拓けるでしょう。';
+              img = 'URL(img/tree-gc7aa71c3a_1280.jpg)';
+              break;
+
+            case 3:
+              msg = '細々と瞬く星を探しながら、聊か立ち止まり頭上に広がる天空を見よ。<br>何事も前向きに進めばたちまち光が共鳴しよい影響をもたらすでしょう。';
+              img = 'URL(img/tree-gc7aa71c3a_1280.jpg)';
+              break;
+
+            case 4:
+              msg = '煌々と輝く星屑が一面に広がり彗星が舞い散っている。<br>星々が遍くすべてにおいてあなたの味方をしてくれるでしょう。';
+              img = 'URL(img/pexels-johannes-plenio-3262249.jpg)';
+              break;
+          }
+
+          document.getElementById('msg').innerHTML = msg;
+          document.getElementById('img-modal').style.backgroundImage = img;
+
+
         },false);
       }    
     }());
@@ -575,68 +632,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body" id="img-modal">
               <div class="column" id="main">
                 <div style="font-size: 5vh; font-weight: bold;">
                   今日の運勢
                 </div>
-                <!-- </h1> -->
-                 <!-- <h4> -->
+                
                   <!-- ここで占い結果を☆の数でランダム表示 -->
                   <div id="star" style="font-size: 8vh; padding: 10% 0; color: hsl(57, 100%, 83%);"></div>
-                <!-- </h4> -->
-                <!-- <h5> -->
+                
                   <span id="msg" style="font-size: 3vh;"></span>
-                <!-- </h5> -->
-
-                <script type="text/javascript">
-                  var star = new Array();
-                  // 設定開始（メッセージの内容を設定してください）
-                  
-                  star[0] = '★☆☆☆☆';
-                  star[1] = '★★☆☆☆';
-                  star[2] = '★★★☆☆';
-                  star[3] = '★★★★☆';
-                  star[4] = '★★★★★';
-                  
-                  var no = Math.floor(Math.random() * star.length);
-
-                  // 表示開始
-                  document.getElementById('star').innerHTML = star[no];
-
-                  
-                  var msg = '占いメッセージ';
-                  
-                  switch (no) {
-                    case 0:
-                      msg = '雲に覆われ漆黒の闇に覆われし一日。<br>今日はおとなしくしておいたほうがよいでしょう。';
-                      break;
-                    
-                    case 1:
-                      msg = 'その光は未だ火影の如し。浮ついた心持ちでいると足もとをすくわれ、<br>暗闇を彷徨うことになるでしょう。';
-                      break;
-
-                    case 2:
-                      msg = '宵闇から解き放たれ、朧月に照らされる道を進め。<br>諦めず堅実に取り組めば道は拓けるでしょう。';
-                      break;
-
-                    case 3:
-                      msg = '細々と瞬く星を探しながら、聊か立ち止まり頭上に広がる天空を見よ。<br>何事も前向きに進めばたちまち光が共鳴しよい影響をもたらすでしょう。';
-                      break;
-
-                    case 4:
-                      msg = '煌々と輝く星屑が一面に広がり彗星が舞い散っている。<br>星々が遍くすべてにおいてあなたの味方をしてくれるでしょう。';
-                      break;
-                  }
-
-                  document.getElementById('msg').innerHTML = msg;
-
-
-                  // 表示終了
-                  
-                  // -->
-                  </script>
-
+                
                 <button type="submit" id="closeModal" class="btn btn-primary">とじる</button>
               </div>
               <div>
