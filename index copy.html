@@ -3,20 +3,21 @@
     <style>
 /***アニメーション用の疑似要素***/
 body::before, body::after{
-  content: '404 NotFound';
+  white-space: pre;
+  content: '404 NotFound\A\Aお探しのページは見つかりませんでした。\A\Aこの先はあなたの知らない世界\A\Aあなたの運命を見定めに';
   position: fixed;/*固定表示*/
   top:0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 999; /*他のスタッキングコンテキストとかち合った時用*/
-  /* background-image: url(img/alice.jpg); シャッターの色 */
-  background-color: rgb(70, 3, 14);
+  background-image: url(img/Alice_animation.jpg); /*シャッターの色*/
+  /* background-color: rgb(70, 3, 14); */
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
   font-size: 5vh;
-  font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
+  font-family: "Ravie", "UD デジタル 教科書体 N-R", "BIZ UDゴシック Regular", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
   animation: min-anim .9s forwards; /*アニメーション付与*/
   animation-delay: 1.5s; /*好みで遅延*/
   transform-origin: bottom; /*変化の起点*/
@@ -43,6 +44,7 @@ body {
   font-weight: 500;
   /* color: #5d7399; */
   color: whitesmoke;
+  overflow: hidden;
 }
 
 
