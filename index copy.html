@@ -516,7 +516,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
           modalArea.classList.toggle('is-show');
 
           var star = new Array();
-                  // 設定開始（メッセージの内容を設定してください）
+          // 設定開始（メッセージの内容を設定してください）
                   
           star[0] = '★☆☆☆☆';
           star[1] = '★★☆☆☆';
@@ -526,7 +526,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
                   
           var no = Math.floor(Math.random() * star.length);
 
-                  // 表示開始
+          // 表示開始
           document.getElementById('star').innerHTML = star[no];
 
                   
@@ -535,33 +535,55 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
                   
           switch (no) {
             case 0:
-              msg = '雲に覆われ漆黒の闇に覆われし一日。<br>今日はおとなしくしておいたほうがよいでしょう。';
-              img = 'URL(img/hd-wallpaper-g9ffa9f255_640.jpg)';
+              msg = 'ハートの女王が機嫌を損ねています。<br>今日は一日おとなしくしておいたほうがよいでしょう。';
+              img = 'URL(img/publicdomainq-0009211tag.jpg)';
               break;
                     
             case 1:
-              msg = 'その光は未だ火影の如し。浮ついた心持ちでいると足もとをすくわれ、<br>暗闇を彷徨うことになるでしょう。';
-              img = 'URL(img/tree-gc7aa71c3a_1280.jpg)';
+              msg = 'マッド・ハッターの狂ったお茶会に招かれてしまいました。<br>自分のペースを持っていかれないように注意！';
+              img = 'URL(img/cup-829527_1920.jpg)';
               break;
 
             case 2:
-              msg = '宵闇から解き放たれ、朧月に照らされる道を進め。<br>諦めず堅実に取り組めば道は拓けるでしょう。';
+              msg = 'チェシャ猫が道を示してくれます。<br>諦めず進めば道は拓けるでしょう。';
               img = 'URL(img/tree-gc7aa71c3a_1280.jpg)';
               break;
 
             case 3:
-              msg = '細々と瞬く星を探しながら、聊か立ち止まり頭上に広がる天空を見よ。<br>何事も前向きに進めばたちまち光が共鳴しよい影響をもたらすでしょう。';
-              img = 'URL(img/tree-gc7aa71c3a_1280.jpg)';
+              msg = '白ウサギの起こすハプニングが思わぬ大逆転に。<br>着いていけばやがて光が見えてくるはず。';
+              img = 'URL(img/usagi.jpg)';
               break;
 
             case 4:
-              msg = '煌々と輝く星屑が一面に広がり彗星が舞い散っている。<br>星々が遍くすべてにおいてあなたの味方をしてくれるでしょう。';
+              msg = '眠り鼠もトランプ兵も誰もがあなたの味方！<br>ハートの女王も恐くない！今日のあなたは無敵！';
               img = 'URL(img/pexels-johannes-plenio-3262249.jpg)';
               break;
           }
 
           document.getElementById('msg').innerHTML = msg;
           document.getElementById('img-modal').style.backgroundImage = img;
+
+          // ラッキーアイテム
+          var item = new Array();
+
+          item[0] = "ティーカップ";
+          item[1] = "時間の狂った懐中時計";
+          item[2] = "金色の鍵";
+          item[3] = "黒いリボン";
+          item[4] = "水色のエプロンドレス";
+          item[5] = "チェシャ猫のぬいぐるみ";
+          item[6] = "シルクハット";
+          item[7] = "白ウサギの手袋";
+          item[8] = "ハンプティ・ダンプティの卵";
+          item[9] = "体が小さくなるクッキー";
+          item[10] = "トランプカード";
+          item[11] = "体が大きくなるキノコ";
+          item[12] = "ハートのクイーンの杖";
+          item[13] = "おしゃべりパンジー";
+
+          var item_no = Math.floor(Math.random() * item.length);
+
+          document.getElementById('item').innerHTML = item[item_no];
 
 
         },false);
@@ -644,6 +666,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
                   <div id="star" style="font-size: 8vh; padding: 10% 0; color: hsl(57, 100%, 83%);"></div>
                 
                   <span id="msg" style="font-size: 3vh;"></span>
+
+                  <br><br>
+
+                  <div id="lacky_item" style="font-size: 3vh;">
+                    ラッキーアイテム：
+                    <span id="item" style="font-size: 3vh;"></span>
+                  </div>
                 
                 <button type="submit" id="closeModal" class="btn btn-primary">とじる</button>
               </div>
