@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <head>
     <style>
+@media screen and (max-width: 480px) {
+	/* 480px以下に適用されるCSS（スマホ用） */
+  html,
+body {
+  height: 100%;
+  /* width: 100%; */
+  min-height: 450px;
+  font-family: "Dosis", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  /* color: #5d7399; */
+  color: whitesmoke;
+  overflow: hidden;
+}
+
+.content {
+  height: 100%;
+  position: relative;
+  z-index: 1; /*重ね合わせレベル数値が大きいほど上に重ねていく　*/
+  background-color: black; /* img配下に画像を置くと読み込み時間が短くなる */
+  overflow: hidden;
+}
+.main-text {
+  position: absolute;
+  z-index: 50;
+  padding: 0vh 20px 0 20px; /*上、右、下、左、vhはビューポートの高さに対する割合*/
+  text-align: center;
+  line-height: 2em;
+  font-size: 5vh;
+  font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
+}
+.mound_text {
+  z-index: 30;
+  padding: 15vh 20px 0 20px; /*上、右、下、左、vhはビューポートの高さに対する割合*/
+  /* margin-top: -80px; */
+  font-weight: 800;
+  /* font-size: 100px; */
+  text-align: center;
+  font-size: 15vh;
+  color: #dd4040;
+  pointer-events: none;
+  font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
+  transform: rotate(6deg);
+}
+.mound_text {
+  z-index: 30;
+  padding: 15vh 20px 0 20px; /*上、右、下、左、vhはビューポートの高さに対する割合*/
+  /* margin-top: -80px; */
+  font-weight: 800;
+  /* font-size: 100px; */
+  text-align: center;
+  font-size: 15vh;
+  color: #dd4040;
+  pointer-events: none;
+  font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
+  transform: rotate(6deg);
+}
+
+
+}
 /***アニメーション用の疑似要素***/
 body::before, body::after{
   white-space: pre;
-  content: '404 NotFound\A\Aお探しのページは見つかりませんでした。\A\Aこの先はあなたの知らない世界\A\Aあなたの運命を見定めに';
+  content: '404 NotFound\A\Aお探しのページは見つかりませんでした。\A\Aこの先に待つのはあなたの知らない世界\A\A一番初めに目に映ったキノコをひとつだけ選ぶのです。\A\Aあなたに待ち受けるのは"幸"か"不幸"か...。';
   position: fixed;/*固定表示*/
   top:0;
   left: 0;
@@ -16,10 +76,10 @@ body::before, body::after{
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
-  font-size: 5vh;
+  font-size: 3vh;
   font-family: "Ravie", "UD デジタル 教科書体 N-R", "BIZ UDゴシック Regular", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
-  animation: min-anim .9s forwards; /*アニメーション付与*/
-  animation-delay: 1.5s; /*好みで遅延*/
+  animation: min-anim 1.3s forwards; /*アニメーション付与*/
+  animation-delay: 5.5s; /*好みで遅延*/
   transform-origin: bottom; /*変化の起点*/
 }
 
@@ -59,11 +119,8 @@ body {
 }
 
 .mashroom1 {
-  /* z-index: 30; */
   top: 82%;
   right: 0.9%;
-  /* background-image: url(img/kinoko3.png); */
-  /* background: URL(img/kinoko1.png); */
   position: absolute;
   background-repeat: no-repeat;
   pointer-events: auto;
@@ -74,11 +131,8 @@ body {
 }
 
 .mashroom2 {
-  /* z-index: 30; */
   top: 80%;
   right: 38%;
-  /* background-image: url(img/kinoko4.png); */
-  /* background: URL(img/kinoko1.png); */
   position: absolute;
   background-repeat: no-repeat;
   pointer-events: auto;
@@ -92,10 +146,6 @@ body {
   z-index: 2;
   top: 6.5%;
   left: 17.6%;
-  /* top: 7.5vh;
-  right: 90vh; */
-  /* background-image: url(img/kinoko4.png); */
-  /* background: URL(img/kinoko1.png); */
   position: absolute;
   background-repeat: no-repeat;
   pointer-events: auto;
@@ -109,8 +159,6 @@ body {
   z-index: 2;
   top: 81%;
   right: 84.5%;
-  /* background-image: url(img/kinoko4.png); */
-  /* background: URL(img/kinoko1.png); */
   position: absolute;
   background-repeat: no-repeat;
   pointer-events: auto;
@@ -124,30 +172,11 @@ body {
   z-index: 2;
   top: 58%;
   right: 20%;
-  /* background-image: url(img/kinoko4.png); */
-  /* background: URL(img/kinoko1.png); */
   position: absolute;
   background-repeat: no-repeat;
   pointer-events: auto;
 }
 .mashroom5:hover{
-  transform: perspective(500px) translateZ(20px);
-  transition: 0.25s;
-}
-
-.mashroom6 { /*mado*/
-  z-index: 2;
-  width: 10%;
-  height: 15.7%;
-  top: 72.2%;
-  right: 51.5%;
-  /* background-image: url(img/kinoko4.png); */
-  /* background: URL(img/kinoko1.png); */
-  position: absolute;
-  background-repeat: no-repeat;
-  pointer-events: auto;
-}
-.mashroom6:hover{
   transform: perspective(500px) translateZ(20px);
   transition: 0.25s;
 }
@@ -170,49 +199,6 @@ body {
   font-family: "Ravie", "Blackadder ITC", "Comic Sans MS", 'Century', 'impact',sans-serif;
 }
 
-.home-link {
-  font-size: 0.6em;
-  font-weight: 400;
-  color: inherit;
-  text-decoration: none;
-  opacity: 0.6;
-  border-bottom: 1px dashed rgba(93, 115, 153, 0.5);
-}
-.home-link:hover {
-  opacity: 1;
-}
-
-.ground:before, .ground:after {
-  content: "";
-  display: block;
-  width: 250px;
-  height: 250px;
-  position: absolute;
-  top: -62.5px;
-  z-index: -1;
-  background: transparent;
-  transform: scaleX(0.2) rotate(45deg);
-}
-.ground:after {
-  left: 50%;
-  margin-left: -166.6666666667px;
-  box-shadow: -325px 275px 15px #8a9bb8, -595px 605px 15px #8496b4, -900px 900px 15px #9dabc4, -1155px 1245px 15px #8496b4, -1495px 1505px 15px #b0bccf, -1800px 1800px 15px #8e9eba, -2140px 2060px 15px #97a6c0, -2425px 2375px 15px #97a6c0, -2665px 2735px 15px #9aa9c2, -3045px 2955px 15px #9dabc4, -3250px 3350px 15px #a4b1c8, -3570px 3630px 15px #94a3be, -3875px 3925px 15px #8798b6, -4160px 4240px 15px #adb9cd, -4495px 4505px 15px #a1aec6, -4785px 4815px 15px #8193b2;
-}
-.ground:before {
-  right: 50%;
-  margin-right: -166.6666666667px;
-  box-shadow: 325px -275px 15px #9aa9c2, 600px -600px 15px #7e90b0, 875px -925px 15px #7e90b0, 1240px -1160px 15px #bac4d5, 1475px -1525px 15px #8a9bb8, 1840px -1760px 15px #8193b2, 2135px -2065px 15px #aab6cb, 2415px -2385px 15px #b0bccf, 2705px -2695px 15px #9aa9c2, 2965px -3035px 15px #b7c1d3, 3335px -3265px 15px #adb9cd, 3605px -3595px 15px #adb9cd, 3925px -3875px 15px #b0bccf, 4215px -4185px 15px #b4bed1, 4485px -4515px 15px #8496b4, 4775px -4825px 15px #b7c1d3;
-}
-
-.uranai {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  pointer-events: none; /*none: ポインターイベントの対象外*/
-  z-index: 10;
-  color: #dd4040;
-
-}
 .mound_text {
   z-index: 30;
   padding: 15vh 20px 0 20px; /*上、右、下、左、vhはビューポートの高さに対する割合*/
@@ -227,40 +213,7 @@ body {
   transform: rotate(6deg);
 }
 
-.mound_spade {
-  display: block;
-  width: 35px;
-  height: 30px;
-  position: absolute;
-  right: 50%;
-  top: 42%;
-  margin-right: -250px;
-  z-index: 0;
-  transform: rotate(35deg);
-  background: #dd4040;
-}
-.mound_spade:before, .mound_spade:after {
-  content: "";
-  display: block;
-  position: absolute;
-}
-.mound_spade:before {
-  width: 40%;
-  height: 30px;
-  bottom: 98%;
-  left: 50%;
-  margin-left: -20%;
-  background: #dd4040;
-}
-.mound_spade:after {
-  width: 100%;
-  height: 30px;
-  top: -55px;
-  left: 0%;
-  box-sizing: border-box;
-  border: 10px solid #dd4040;
-  border-radius: 4px 4px 20px 20px;
-}
+
 
 /* モーダルCSSここから */
 .modalArea {
@@ -288,7 +241,6 @@ body {
   transform:translate(-50%,-50%);
   width: 70%;
   max-width: 60%; /*モーダルの横幅指定*/
-  /* max-height: calc(100vh - 350px); */
   padding: 10px 30px;
   background-color: transparent;
 }
@@ -309,12 +261,7 @@ body {
   padding: 0;
   border-radius: 4rem;
   font-family: 'PT Sans', sans-serif;
-  /* background-image: URL(img/night-g6b090a4fd_1920.jpg);蛍 */
-  /* background-image: URL(img/pexels-johannes-plenio-3262249.jpg);星空 */
-  /* background-image: URL(img/hd-wallpaper-g9ffa9f255_640.jpg);夜の木 */
-  /* background-image: URL(img/tree-gc7aa71c3a_1280.jpg);ねこちゃん */
   background-size: cover;
-  /* background-color: #000; */
 }
 
 .modal-content {
@@ -368,11 +315,6 @@ form {
   /* margin-left: 15px; */
 }
 
-/* #secondary {
-  background-color: #666699;
-  border-radius: 0 4rem 4rem 0;
-  text-align: center;
-} */
 
 #main .form-control {
   border-radius: 0;
@@ -410,11 +352,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
 }
 
 
-/* #secondary .btn-primary {
-  background: #f8f9fa4f;
-  color: #000;
-} */
-
 .modal-body label {
   margin-bottom: 0;
 }
@@ -426,6 +363,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
 /* モーダルCSSここまで */
 </style>
 <script>
+
+  if (navigator.userAgent.match(/iPhone|Android.+Mobile/)){
+    alert("PC画面以外ではこちらのページを開こうとしないでください。");
+  }
   
     (function() {
 
@@ -506,11 +447,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
       const openModal3 = document.getElementById('openModal3');
       const openModal4 = document.getElementById('openModal4');
       const openModal5 = document.getElementById('openModal5');
-      // const openModal6 = document.getElementById('openModal6');
       const closeModal = document.getElementById('closeModal');
       const modalBg = document.getElementById('modalBg');
-      const toggle = [openModal,openModal2,openModal3,openModal4,openModal5,closeModal,modalBg];
-  
+      // const buttonClose = document.getElementById('closeModal');
+      // const toggle = [openModal,openModal2,openModal3,openModal4,openModal5,closeModal,modalBg];
+      const toggle = [openModal,openModal2,openModal3,openModal4,openModal5];
+
+      closeModal.addEventListener('click', function(){
+        modalArea.classList.toggle('is-show');
+      });
+
+      modalBg.addEventListener('click', function(e){
+        modalArea.classList.toggle('is-show');
+      });
+
       for(let i=0, len=toggle.length ; i<len ; i++){
         toggle[i].addEventListener('click',function(){
           modalArea.classList.toggle('is-show');
@@ -587,7 +537,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
 
 
         },false);
-      }    
+      }  
+      
+      
+
     }());
 		
 		onResize();
@@ -602,45 +555,38 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
 	});
 })();
 </script>
-
 </head>
 
 <body>
-
-
 <div class="content">
     <canvas class="snow" id="snow"></canvas>
     <div class="mound_text">404</div> <!--// 404-->
     
     <div class="mashroom1">
-      <img src="img/kinoko3.png" class="button" id="openModal" style="width: 10vw; height: 23vh;">
+      <img src="img/kinoko3.png" class="button" id="openModal" style="width: 10vw;">
       <input type="hidden"></input>
     </div>
     <!-- <div class="uranai" id="pos1"></div> -->
 
     <div class="mashroom2">
-      <img src="img/kinoko4.png" class="button" id="openModal2" style="width: 10vw; height: 24vh;">
+      <img src="img/kinoko4.png" class="button" id="openModal2" style="width: 10vw;">
       <input type="hidden"></input>
     </div>
 
     <div class="mashroom3">
-      <img src="img/big_kinoko.png" class="button" id="openModal3" style="width:22vw; height: 50vh;">
+      <img src="img/big_kinoko.png" class="button" id="openModal3" style="width:22vw;">
       <input type="hidden"></input>
     </div>
 
     <div class="mashroom4">
-      <img src="img/blue_kinoko3.png" class="button" id="openModal4" style="width: 4.3vw; height: 18vh;">
+      <img src="img/blue_kinoko3.png" class="button" id="openModal4" style="width: 4.3vw;">
       <input type="hidden"></input>
     </div>
 
     <div class="mashroom5">
-      <img src="img/double_kinoko2.png" class="button" id="openModal5" style="width:11.5vw ; height: 40vh;">
+      <img src="img/double_kinoko2.png" class="button" id="openModal5" style="width:11.5vw;">
       <input type="hidden"></input>
     </div>
-    <!-- <div class="mashroom6">
-      <img src="img/mado.png" class="button" id="openModal6">
-      <input type="hidden"></input>
-    </div> -->
 
     <div class="main-text">
       <h1>Choose your favorite mushroom<br/></h1>
@@ -649,18 +595,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
   </div>
 
   <!-- モーダルエリアここから -->
-<section id="modalArea" class="modalArea">
-  <div id="modalBg" class="modalBg"></div>
-  <div class="modalWrapper">
-    <div class="modalContents">
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body" id="img-modal">
-              <div class="column" id="main">
-                <div style="font-size: 5vh; font-weight: bold;">
+  <section id="modalArea" class="modalArea">
+    <div id="modalBg" class="modalBg"></div>
+    <div class="modalWrapper">
+      <div class="modalContents">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body" id="img-modal">
+                <div class="column" id="main">
+                  <div style="font-size: 5vh; font-weight: bold;">
                   今日の運勢
-                </div>
+                  </div>
                 
                   <!-- ここで占い結果を☆の数でランダム表示 -->
                   <div id="star" style="font-size: 8vh; padding: 10% 0; color: hsl(57, 100%, 83%);"></div>
@@ -674,32 +620,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', end
                     <span id="item" style="font-size: 3vh;"></span>
                   </div>
                 
-                <button type="submit" id="closeModal" class="btn btn-primary">とじる</button>
-              </div>
-              <div>
-                <!-- <?xml version="1.0" encoding="UTF-8"?>
-                <svg width="67px" height="578px" viewBox="0 0 67 578" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    Generator: Sketch 53.2 (72643) - https://sketchapp.com 
-                    <title>Path</title>
-                    <desc>Created with Sketch.</desc>
-                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <path d="M11.3847656,-5.68434189e-14 C-7.44726562,36.7213542 5.14322917,126.757812 49.15625,270.109375 C70.9827986,341.199016 54.8877465,443.829224 0.87109375,578 L67,578 L67,-5.68434189e-14 L11.3847656,-5.68434189e-14 Z" id="Path" fill="#F9BC35"></path>
-                    </g>
-                </svg> -->
-              </div>
-              <!-- <div class="column" id="secondary">
-                <div class="sec-content">
-                  <h2>Welcome Back!</h2>
-                  <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-                  <button type="button" class="btn btn-primary">Login</button>
+                  <button type="submit" id="closeModal" class="btn btn-primary">とじる</button>
                 </div>
-              </div> -->
+
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 <!-- モーダルエリアここまで -->
 </body>
